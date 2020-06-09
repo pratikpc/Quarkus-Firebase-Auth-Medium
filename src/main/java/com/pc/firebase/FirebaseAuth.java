@@ -2,7 +2,10 @@ package com.pc.firebase;
 
 import java.util.Set;
 import javax.annotation.security.PermitAll;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
@@ -35,4 +38,14 @@ public class FirebaseAuth {
             return Set.of();
         return user.getClaimNames();
     }
+
+    @POST
+    @Path("22")
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Produces(MediaType.TEXT_PLAIN)
+    public String claim(@FormParam("no_te") final String s){
+        System.out.println("333" + s);
+        return "#3" + s;
+    }
+
 }
